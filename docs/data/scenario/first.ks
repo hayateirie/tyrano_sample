@@ -1,62 +1,87 @@
 *start
 
-[title name="走れメロス・決断の時"]
+[title name="タイムループからの脱出"]
 [hidemenubutton]
 [wait time=200]
 [freeimage layer="base"]
 
-「メロスの最後の決断」[l][r]
+あなたは目を覚ました。[l][r]
+目の前には不思議な装置と扉がある。[l][r]
+どうやらここから脱出する方法を探さなければならないようだ。[l][r]
 
-メロスは激怒した。[l][r]
+どうする？[l][r]
 
-必ず、かの邪智暴虐の王を除かねばならぬと決意した。[l][r]
-
-「ああ、どうすればいいのだろうか…」[l][r]
-
-メロスは思った。[l][r]
-
-[link target=*tag_sleep] → 寝る [endlink][r]
-[link target=*tag_run] → 走る [endlink][r]
-[link target=*tag_fight] → 王に挑む [endlink][r]
+[link target=*tag_inspect] 装置を調べる [endlink][r]
+[link target=*tag_door] 扉を開ける [endlink][r]
+[link target=*tag_wait] 待機する [endlink][r]
 [s]
 
-*tag_sleep
+*tag_inspect
 
 [cm]
 
-[bg storage=sleep.jpg time=500]
+[bg storage=machine.jpg time=500]
 
-メロスは疲れ果てて眠った。[l][r]
-目が覚めると、王国はすでに崩壊していた。[l][r]
+装置には「ループを解除する鍵」と書かれている。[l][r]
+しかし、操作方法が分からない。[r]
+周囲をさらに調べるか？[r]
 
-【 BAD END: 無力な英雄 】[l][cm]
+[link target=*tag_code] 装置のコードを入力する [endlink][r]
+[link target=*tag_start] 部屋をもう一度見回す [endlink][r]
+[s]
+
+*tag_door
+
+[bg storage=door.jpg time=500]
+
+扉を開けた…が、そこは同じ部屋だった。[l][r]
+また最初に戻る。[r]
+
+【 ループ継続 】[l][cm]
 
 [jump target=*start]
 
-*tag_run
+*tag_wait
 
-[bg storage=run.jpg time=500]
+[bg storage=clock.jpg time=500]
 
-[cm]
-メロスは黒い風のように走った。[l][r]
-陽は、ゆらゆら地平線に没し、最後の光が消えようとした時、メロスは刑場に突入した。[l][r]
-王は驚愕した。「この男、信じられん！」[r]
-メロスの勇気は人々の心に火をつけた。[r]
+あなたは時間を無駄にした。[l][r]
+突然、部屋が崩壊し始めた！[r]
 
-【 GOOD END: 希望の疾走 】[l][cm]
+【 BAD END: 世界の崩壊 】[l][cm]
 
 [jump target=*start]
 
-*tag_fight
+*tag_code
 
-[bg storage=fight.jpg time=500]
+[bg storage=code.jpg time=500]
 
-[cm]
-メロスは刀を抜き、王に立ち向かった。[l][r]
-「この国に自由を！」[r]
-激しい戦いの末、メロスは王を打ち倒した。[l][r]
-王国は解放され、人々はメロスを英雄と称えた。[r]
+装置にはコードを入力する画面がある。[l][r]
 
-【 SPECIAL END: 真の英雄 】[l][cm]
+「入力してください:」[r]
+
+[link target=*tag_correct_code] 31415 [endlink][r]
+[link target=*tag_wrong_code] 12345 [endlink][r]
+[s]
+
+*tag_correct_code
+
+[bg storage=portal.jpg time=500]
+
+コードが正しい！装置が動き始めた。[l][r]
+次の瞬間、眩い光に包まれる。[r]
+
+【 GOOD END: タイムループからの脱出 】[l][cm]
+
+[jump target=*start]
+
+*tag_wrong_code
+
+[bg storage=error.jpg time=500]
+
+コードが間違っている！装置が暴走し始めた。[l][r]
+あなたは再びループに閉じ込められる。[r]
+
+【 ループ継続 】[l][cm]
 
 [jump target=*start]
